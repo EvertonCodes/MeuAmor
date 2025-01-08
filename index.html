@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Formulario</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+     function validarFormulario() {
+    var nome = document.getElementById('nome').value;
+    var sobrenome = document.getElementById('sobrenome').value;
+    
+    // Verifica se os valores são "Weslânnya" e "Barros"
+    if (nome === "Weslânnya" && sobrenome === "Barros") {
+        // Mensagem personalizada de amor
+        var mensagemEspecial = "Você é a razão do meu sorriso, o brilho nos meus dias";
+        
+        // Redireciona para outra página com a mensagem de amor na URL
+        window.location.href = "mensagem.html?msg=" + encodeURIComponent(mensagemEspecial);
+        return false; // Impede o envio do formulário
+    }
+
+    return true; // Permite o envio do formulário
+}
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <img src="img/wes.jpeg" alt="Perfil">
+
+      <form action="login.php" method="post" onsubmit="return validarFormulario()">
+        <div>
+          <label for="nome"></label>
+          <input class="nome" type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+        </div>
+
+        <div>
+          <label for="sobrenome"></label>
+          <input class="sobrenome" type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" required>
+        </div>
+
+        <div>
+          <input class="submit" type="submit" value="Logar">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

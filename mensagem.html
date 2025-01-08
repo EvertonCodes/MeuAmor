@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>te amo</title>
+    <meta charset="utf-8">
+    <style>
+       body {
+        font-family: 'Open Sans', sans-serif;
+        background: url(img/mor.jpeg) no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+      }
+
+      #container {
+        background: rgba(255, 255, 255, 0.781);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: 'Sacramento', cursive;
+        font-size: 30px;
+        color: #fa19affb;
+      }
+
+      h2 {
+        margin: 5px;
+        font-family: 'Sacramento', cursive;
+        font-size: 35px;
+        color: #3a3939; /* Cor verde-escuro */
+      
+      }
+
+      #mensagens {
+        font-size: 20px;
+        font-weight: bold;
+        color: #86197d; 
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+      /* Animação de pulsar */
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+
+      .heart {
+        font-size: 50px;
+        color: #f50057;
+        margin: 20px 0;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      /* Animação de batimento cardíaco */
+      @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.2); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+      }
+
+      video {
+        width: auto;
+        height: 400px;
+        border-radius: 10px;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        // Captura a mensagem da URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var mensagem = urlParams.get('msg');  // Obtém o parâmetro "msg"
+
+        // Exibe a mensagem na página
+        if (mensagem) {
+          document.getElementById('mensagem').textContent = mensagem;
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Uma Mensagem Especial para Você</h1> <!-- Título no topo -->
+      
+      <h2>Weslânnya Barros</h2> <!-- Nome em destaque -->
+
+      <p id="mensagens">
+        Você é o motivo do meu sorriso, a razão do meu coração bater mais forte.
+      </p>
+
+      <!-- Vídeo -->
+      <div class="video-container">
+        <video autoplay loop>
+          <source src="video/mut.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <audio autoplay loop>
+        <source src="music/videoplayback (2).m4a" type="audio/mp3">
+        Seu navegador não suporta o elemento <code>audio</code>.
+      </audio>
+
+      <!-- Coração animado -->
+      <div class="heart">💖</div> 
+
+      <!-- Mensagem final de amor -->
+      <p style="color: blue; 
+      font-size: 18px;" >Com todo o meu amor, para sempre!</p>
+      <p style="color: red;
+      font-size: 18px;">Te amo</p>
+
+    </div>
+  </body>
+</html>
