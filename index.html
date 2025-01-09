@@ -1,26 +1,41 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <title>Formulario</title>
+    <title>Formulario do Amor</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script>
-     function validarFormulario() {
-    var nome = document.getElementById('nome').value;
-    var sobrenome = document.getElementById('sobrenome').value;
-    
-    // Verifica se os valores são "Weslânnya" e "Barros"
-    if (nome === "Weslânnya" && sobrenome === "Barros") {
-        // Mensagem personalizada de amor
-        var mensagemEspecial = "Você é a razão do meu sorriso, o brilho nos meus dias";
-        
-        // Redireciona para outra página com a mensagem de amor na URL
-        window.location.href = "mensagem.html?msg=" + encodeURIComponent(mensagemEspecial);
+        <script>
+       function validarFormulario() {
+        var nome = document.getElementById('nome').value;
+        var sobrenome = document.getElementById('sobrenome').value;
+        var mensagemErro = document.getElementById('mensagemErro'); // Referência para o elemento de erro
+
+        // Limpa a mensagem de erro caso tenha sido exibida anteriormente
+        mensagemErro.style.display = 'none';
+
+        // Verifica se os valores são "Weslânnya" e "Barros"
+        if (nome === "Weslânnya" && sobrenome === "Barros") {
+            // Mensagem personalizada de amor
+            var mensagemEspecial = "Você é a razão do meu sorriso, o brilho nos meus dias";
+            
+            // Redireciona para outra página com a mensagem de amor na URL
+            window.location.href = "mensagem.html?msg=" + encodeURIComponent(mensagemEspecial);
+            return false; // Impede o envio do formulário
+        }
+
+        // Se o nome ou sobrenome estiver errado, exibe a mensagem de erro
+        mensagemErro.style.display = 'block';
+        mensagemErro.innerHTML = 'Pessoa Errada';
+
+        // Limpa os campos de nome e sobrenome
+        document.getElementById('nome').value = '';
+        document.getElementById('sobrenome').value = '';
+
+        // Foca no campo de nome para o usuário tentar novamente
+        document.getElementById('nome').focus();
+
         return false; // Impede o envio do formulário
     }
-
-    return true; // Permite o envio do formulário
-}
     </script>
   </head>
 
@@ -43,6 +58,9 @@
           <input class="submit" type="submit" value="Logar">
         </div>
       </form>
+       <div id="mensagemErro" style="display:none; color: rgb(8, 0, 0); font-weight: bold; text-align: center; padding: 15px; background-color: #ffffff; border: 1px solid #ffffff; border-radius: 5px; position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; z-index: 1000;">
+        Pessoa Errada
+      </div>
     </div>
   </body>
 </html>
